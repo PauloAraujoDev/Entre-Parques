@@ -1,0 +1,248 @@
+<!doctype html>
+<html id="app-entre-parques" style="background: #ecf0f1" lang="en">
+
+<head>
+  <meta name="google-signin-client_id"
+    content="470069408277-90j7k2mp9k290l9qih75spbmjhsja04p.apps.googleusercontent.com">
+  <title>EntreParquesApp</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Import Admin LTE css..-->
+  <link rel="stylesheet" href="./assets/statics/adminLTE/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="./assets/statics/adminLTE/css//font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="./assets/statics/adminLTE/css//ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="./assets/statics/adminLTE/css//AdminLTE.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins.
+         folder instead of downloading all of them to reduce the load.-->
+  <link rel="stylesheet" href="./assets/statics/adminLTE/css/_all-skins.min.css">
+  <!-- Morris chart -->
+  <link rel="stylesheet" href="./assets/statics/adminLTE/css/morris.css">
+  <!-- jvectormap -->
+  <link rel="stylesheet" href="./assets/statics/adminLTE/css/jquery-jvectormap.css">
+  <!-- Date Picker -->
+  <link rel="stylesheet" href="./assets/statics/adminLTE/css/bootstrap-datepicker.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="./assets/statics/adminLTE/css/daterangepicker.css">
+  <!-- bootstrap wysihtml5 - text editor -->
+  <link rel="stylesheet" href="./assets/statics/adminLTE/css/bootstrap3-wysihtml5.min.css">
+  <!-- Google Font -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+  <link rel="stylesheet" href="https://adminlte.io/themes/AdminLTE/plugins/iCheck/all.css">
+
+  <!--=========================================LOGIN======================================================-->
+  <link rel="stylesheet" type="text/css"
+    href="./assets/statics/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css"
+    href="./assets/statics/login/fonts/iconic/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/statics/login/vendor/animate/animate.css">
+  <link rel="stylesheet" type="text/css" href="./assets/statics/login/vendor/css-hamburgers/hamburgers.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/statics/login/vendor/animsition/css/animsition.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/statics/login/vendor/select2/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/statics/login/vendor/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" type="text/css" href="./assets/statics/login/css/util.css">
+  <link rel="stylesheet" type="text/css" href="./assets/statics/login/css/main.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <!--===============================================================================================-->
+
+
+</head>
+
+<body class="hold-transition skin-green sidebar-mini">
+  <app-root></app-root>
+  <!-- jQuery 3 -->
+  <script src="./assets/statics/adminLTE/js/jquery.min.js"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="./assets/statics/adminLTE/js/jquery-ui.min.js"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge('uibutton', $.ui.button);
+
+  </script>
+  <!-- Bootstrap 3.3.7 -->
+  <script src="./assets/statics/adminLTE/js/bootstrap.min.js"></script>
+  <!-- Morris.js charts -->
+  <script src="./assets/statics/adminLTE/js/raphael.min.js"></script>
+  <script src="./assets/statics/adminLTE/js/morris.min.js"></script>
+  <!-- Sparkline -->
+  <script src="./assets/statics/adminLTE/js/jquery.sparkline.min.js"></script>
+  <!-- jvectormap -->
+  <script src="./assets/statics/adminLTE/js/jquery-jvectormap-1.2.2.min.js"></script>
+  <script src="./assets/statics/adminLTE/js/jquery-jvectormap-world-mill-en.js"></script>
+  <!-- jQuery Knob Chart -->
+  <script src="./assets/statics/adminLTE/js/jquery.knob.min.js"></script>
+  <!-- daterangepicker -->
+  <script src="./assets/statics/adminLTE/js/moment.min.js"></script>
+  <script src="./assets/statics/adminLTE/js/daterangepicker.js"></script>
+  <!-- datepicker -->
+  <script src="./assets/statics/adminLTE/js/bootstrap-datepicker.min.js"></script>
+  <!-- Bootstrap WYSIHTML5 -->
+  <script src="./assets/statics/adminLTE/js/bootstrap3-wysihtml5.all.min.js"></script>
+  <!-- Slimscroll -->
+  <script src="./assets/statics/adminLTE/js/jquery.slimscroll.min.js"></script>
+  <!-- FastClick -->
+  <script src="./assets/statics/adminLTE/js/fastclick.js"></script>
+  <!-- AdminLTE App -->
+  <script src="./assets/statics/adminLTE/js/adminlte.min.js"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="./assets/statics/adminLTE/js/dashboard.js"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="./assets/statics/adminLTE/js/demo.js"></script>
+
+  <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyCtMf7x32tRPgugB9vueJoYHQcWw_UZDGU&libraries=geometry'>
+  </script>
+  <!-- <script src='https://maps.googleapis.com/maps/api/staticmap?key=AIzaSyCtMf7x32tRPgugB9vueJoYHQcWw_UZDGU&center=-31.99954284320884,150.17838661332462&zoom=7&format=png&maptype=roadmap&style=element:geometry%7Ccolor:0xebe3cd&style=element:labels.text.fill%7Ccolor:0x523735&style=element:labels.text.stroke%7Ccolor:0xf5f1e6&style=feature:administrative%7Celement:geometry.stroke%7Ccolor:0xc9b2a6&style=feature:administrative.land_parcel%7Celement:geometry.stroke%7Ccolor:0xdcd2be&style=feature:administrative.land_parcel%7Celement:labels.text.fill%7Ccolor:0xae9e90&style=feature:landscape.natural%7Celement:geometry%7Ccolor:0xdfd2ae&style=feature:poi%7Celement:geometry%7Ccolor:0xdfd2ae&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x93817c&style=feature:poi.park%7Celement:geometry.fill%7Ccolor:0xa5b076&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x447530&style=feature:road%7Celement:geometry%7Ccolor:0xf5f1e6&style=feature:road.arterial%7Celement:geometry%7Ccolor:0xfdfcf8&style=feature:road.highway%7Celement:geometry%7Ccolor:0xf8c967&style=feature:road.highway%7Celement:geometry.stroke%7Ccolor:0xe9bc62&style=feature:road.highway.controlled_access%7Celement:geometry%7Ccolor:0xe98d58&style=feature:road.highway.controlled_access%7Celement:geometry.stroke%7Ccolor:0xdb8555&style=feature:road.local%7Celement:labels.text.fill%7Ccolor:0x806b63&style=feature:transit.line%7Celement:geometry%7Ccolor:0xdfd2ae&style=feature:transit.line%7Celement:labels.text.fill%7Ccolor:0x8f7d77&style=feature:transit.line%7Celement:labels.text.stroke%7Ccolor:0xebe3cd&style=feature:transit.station%7Celement:geometry%7Ccolor:0xdfd2ae&style=feature:water%7Celement:geometry.fill%7Ccolor:0xb9d3c2&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x92998d&size=480x360'></script>
+   -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+  <script>
+    $(function () {
+
+      $(".input input").focus(function () {
+
+        $(this).parent(".input").each(function () {
+          $("label", this).css({
+            "line-height": "18px",
+            "font-size": "18px",
+            "font-weight": "100",
+            "top": "0px"
+          })
+          $(".spin", this).css({
+            "width": "100%"
+          })
+        });
+      }).blur(function () {
+        $(".spin").css({
+          "width": "0px"
+        })
+        if ($(this).val() == "") {
+          $(this).parent(".input").each(function () {
+            $("label", this).css({
+              "line-height": "60px",
+              "font-size": "24px",
+              "font-weight": "300",
+              "top": "10px"
+            })
+          });
+
+        }
+      });
+
+      $(".button").click(function (e) {
+        var pX = e.pageX,
+          pY = e.pageY,
+          oX = parseInt($(this).offset().left),
+          oY = parseInt($(this).offset().top);
+
+        $(this).append('<span class="click-efect x-' + oX + ' y-' + oY + '" style="margin-left:' + (pX - oX) +
+          'px;margin-top:' + (pY - oY) + 'px;"></span>')
+        $('.x-' + oX + '.y-' + oY + '').animate({
+          "width": "500px",
+          "height": "500px",
+          "top": "-250px",
+          "left": "-250px",
+
+        }, 600);
+        $("button", this).addClass('active');
+      })
+
+      $(".alt-2").click(function () {
+        if (!$(this).hasClass('material-button')) {
+          $(".shape").css({
+            "width": "100%",
+            "height": "100%",
+            "transform": "rotate(0deg)"
+          })
+
+          setTimeout(function () {
+            $(".overbox").css({
+              "overflow": "initial"
+            })
+          }, 600)
+
+          $(this).animate({
+            "width": "140px",
+            "height": "140px"
+          }, 500, function () {
+            $(".box").removeClass("back");
+
+            $(this).removeClass('active')
+          });
+
+          $(".overbox .title").fadeOut(300);
+          $(".overbox .input").fadeOut(300);
+          $(".overbox .button").fadeOut(300);
+
+          $(".alt-2").addClass('material-buton');
+        }
+
+      })
+
+      $(".material-button").click(function () {
+
+        if ($(this).hasClass('material-button')) {
+          setTimeout(function () {
+            $(".overbox").css({
+              "overflow": "hidden"
+            })
+            $(".box").addClass("back");
+          }, 200)
+          $(this).addClass('active').animate({
+            "width": "700px",
+            "height": "700px"
+          });
+
+          setTimeout(function () {
+            $(".shape").css({
+              "width": "50%",
+              "height": "50%",
+              "transform": "rotate(45deg)"
+            })
+
+            $(".overbox .title").fadeIn(300);
+            $(".overbox .input").fadeIn(300);
+            $(".overbox .button").fadeIn(300);
+          }, 700)
+
+          $(this).removeClass('material-button');
+
+        }
+
+        if ($(".alt-2").hasClass('material-buton')) {
+          $(".alt-2").removeClass('material-buton');
+          $(".alt-2").addClass('material-button');
+        }
+
+      });
+
+    });
+
+  </script>
+
+  <script>
+    var geolocation = undefined;
+    (function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        alert('Geolocation on Iphone doesnt Works');
+      }
+    })();
+
+    function showPosition(position) {
+       localStorage.setItem('latitude', JSON.stringify(position.coords.latitude));
+       localStorage.setItem('longitude', JSON.stringify(position.coords.longitude));
+    }
+
+  </script>
+</body>
+
+</html>

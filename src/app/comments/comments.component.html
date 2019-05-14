@@ -1,0 +1,68 @@
+<div class="content-wrapper">
+  <section class="content-header">
+    <ol class="breadcrumb">
+      <li><a routerLink="/menu">Menu</a></li>
+      <li><a routerLink="/map">Map</a></li>
+      <li><a routerLink="/map-details/:name"><i class="fas fa-info-circle"></i> Details</a></li>
+      <li class="active">Comments</li>
+    </ol>
+  </section>
+
+  <section class="content">
+    <div class="box box-widget">
+      <div class="box-header with-border">
+        <div class="user-block">
+          <img class="img-circle" src="{{comments.image}}" alt="User Image">
+          <span class="username"><a href="#">{{comments.name}}</a></span>
+          <span class="description">Últimos feedbacks sobre: {{comments.name}}</span>
+        </div>
+        <!-- /.user-block -->
+        <div class="box-tools">
+          <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Mark as read">
+            <i class="fa fa-circle-o"></i></button>
+          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+          </button>
+          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+        </div>
+        <!-- /.box-tools -->
+      </div>
+      <!-- /.box-header -->
+      <div class="box-body">
+        <img class="img-responsive pad" src="{{comments.image}}" alt="Photo">
+
+        <p>O que você achou deste lugar? Conte-nos sua experiência...</p>
+        <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
+        <button type="button" class="btn btn-default btn-xs"><i class="far fa-thumbs-up"></i> Like</button>
+        <span class="pull-right text-muted">127 likes - 3 comments</span>
+      </div>
+      <!-- /.box-body -->
+      <div class="box-footer box-comments">
+        <div class="box-comment" *ngFor='let comment of comments.feedbacks'>
+          <div *ngIf="comment">
+            <img class="img-circle img-sm" src="{{comment.image}}" alt="User Image">
+            <div class="comment-text">
+              <span class="username">
+                {{comment.name}}
+                <span class="text-muted pull-right">{{comment.date}}</span>
+              </span>
+              {{comment.text}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="box-footer">
+        <!-- <form action="#" name="FORM" method="post"> -->
+        <img class="img-responsive img-circle img-sm" src="{{user.image}}" alt="Alt Text">
+        <div class="img-push">
+          <input type="text" id="coment" class="form-control input-sm" placeholder="Press enter to post comment" [(ngModel)]="typingComments">
+        </div>
+        <br />
+        <div class="text-right">
+          <button (click)='insertComment()' class="btn btn-bitbucket"><i class="far fa-comments">&nbsp;</i>Comentar</button>
+        </div>
+       <!-- </form>-->
+      </div>
+    </div>
+  </section>
+</div>

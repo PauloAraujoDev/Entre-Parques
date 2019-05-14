@@ -1,0 +1,46 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+
+    <ol class="breadcrumb">
+      <li><a routerLink="/menu"><i class="fa fa-home"></i> Menu</a></li>
+      <li><a><i class="fa fa-map-signs"></i> Prestatores de Serviços</a></li>
+    </ol>
+  </section>
+  <section class="content">    
+    <section class="details-card">
+      <div class="container">
+        <div class="row">
+          <div *ngFor="let item of items">
+            <div class="col-md-4 col-lg-4 col-xs-12">
+              <div class="card-content">
+                <div class="card-img">
+                  <img src='{{item.image}}' alt="">
+                  <span style="width: 120px">
+                    <h4 style="text-align: center">{{item.role}}</h4>
+                  </span>
+                </div>
+                <div class="card-desc">
+                  <div class="row">
+                    <div class="col-xs-8" style="margin-bottom: 10px">
+                      <h3 style="display: inline; margin-right: 10px;">{{item.name}} </h3>
+                      <span style="display: inline;" style="font-weight: 600">{{item.age}}</span>
+                    </div>                                       
+                  </div>
+                  <p>{{item.description}} <br/></p>     
+                  <div class="whatzap-container">
+                    <img style="height: 40px; margin-right: 10px;" src="https://universidadedaquimica.com.br/alunos/wp-content/uploads/2016/06/zap.png" />
+                    <span class="">{{item.number}}</span>
+                  </div>   
+                </div>
+              </div>
+              <br />
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</div>

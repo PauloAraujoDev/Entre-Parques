@@ -1,0 +1,249 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+
+    <ol class="breadcrumb">
+      <li><a routerLink="/menu"><i class="fa fa-home"></i> Menu</a></li>
+      <li class="active">Perfil Prestador</li>
+    </ol>
+  </section>
+
+
+  <section class="content">
+    <div *ngIf="!hasPermission">
+      <div class="row text-center" style="font-size: 22px">
+        <i style="color: #008d4c;" class="icon fa fa-ban fa-10x"></i>
+        <br />
+        <div style="margin-top: 35px">
+          <strong style="color: #008d4c;">Ops...</strong>
+          <br />
+          <strong style="color: #008d4c;">Você não possui perfil de prestador.</strong>
+        </div>
+      </div>
+    </div>
+
+
+    <div *ngIf="hasPermission && prestadores && !prestadores['id']">
+
+      <div class="row text-center" style="font-size: 22px">
+        <i style="color: #008d4c;" class="fas fa-users fa-10x"></i>
+      </div>
+      <div class="container">
+        <div class="box box-success"
+          style="background-color: transparent; position: absolute; bottom: 0; margin-left: -30px">
+          <div class="box-header with-border">
+            <div class="row text-center">
+              <div class="box-title" style="font-size: 14px">Você não possui perfil como Prestador de Serviços</div>
+            </div>
+            <div class="form-group">
+              <div class="row"><br>
+                <div class="col-xs-12">
+                  <div class="input-group input-group-sm">
+                    <span class="input-group-btn">
+                      <button style="width: 100%; border-radius: 10px" type="button" class="btn btn-success"
+                        data-toggle="modal" data-target="#modal-default">Novo Cadastro</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="hasPermission && prestadores && prestadores['id'] ">
+      <div class="box box-default">
+        <div class="box-header with-border">
+          <div class="col-xs-12" style="margin-top: 5px;">
+            <div class="box box-widget widget-user-2">
+              <div class="widget-user-header bg-green">
+                <div class="widget-user-image">
+                  <img class="img-circle" src="{{prestadores.image}}" alt="User Avatar">
+                </div>
+                <h3 class="widget-user-username">{{prestadores.name}}</h3>
+                <h5 class="widget-user-desc">Prestador de Serviço</h5>
+              </div>
+              <div class="box-footer no-padding">
+                <p style="margin-top: 5px;"><strong>Cpf:</strong><i
+                    class="pull-right badge bg-blue">{{prestadores.cpf}}</i></p>
+                <p><strong>Nascimento:</strong><i class="pull-right badge bg-blue">{{prestadores.birth}}</i></p>
+                <p><strong>Cidade:</strong><i
+                    class="pull-right badge bg-blue">{{prestadores.city}}-{{prestadores.stateSigla}}</i>
+                </p>
+                <p><button type="button" (click)="changeOperationEdit()" class="btn btn-block btn-success btn-sm"
+                    data-toggle="modal" data-target="#modal-default">Editar perfil</button></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="hasPermission && !!prestadores && !!prestadores['id']">
+        <div class="col-xs-12 col-md-12">
+          <div class="box box-success">
+            <div class="box-header with-border">
+              <h3 class="box-title">Meus Serviços</h3>
+
+              <div class="box-tools pull-right">
+                <a href="" (click)="changeOperationForService(undefined, 1)" data-toggle="modal"
+                  data-target="#modal-altera-servico">
+                  <span data-toggle="tooltip" class="badge bg-green">Novo serviço</span>
+                </a>
+                <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                  <i class="fa fa-plus"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="box-body" *ngFor="let displaysUserService of displaysUserServices">
+              <div class="col-xs-5">
+                <strong><i class="fa fa-book margin-r-5"></i> Serviço:</strong>
+                <p class="text-muted">{{displaysUserService.name}}</p>
+              </div>
+              <div class="col-xs-4">
+                <strong><i class="fa fa-tree margin-r-5"></i> UC:</strong>
+                <p class="text-muted">{{displaysUserService.uc}}</p>
+              </div>
+              <div class="col-xs-3">
+                <i class="far fa-trash-alt" style="margin-right: 15px;" (click)="eliminar()"></i>
+                <i class="fas fa-pencil-alt" (click)="changeOperationForService(displaysUserService)"
+                  data-toggle="modal" data-target="#modal-altera-servico"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</div>
+
+<div class="modal modal-default fade" id="modal-default">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" style="color: green;"><b>Cadastro de Prestadores de Serviço</b></h4>
+      </div>
+      <div class="modal-body">
+        <div class="box-body">
+          <div class="col-xs-12">
+            <label class="label-title-input">Nome</label>
+            <input class="form-control input-sm" ng-required="required" type="text" placeholder=""
+              [(ngModel)]="prestadores.name">
+          </div>
+
+          <div class="col-xs-6">
+            <label class="label-title-input">Cpf</label>
+            <input class="form-control input-sm" type="text" placeholder="Ex.: 111.111.111-11"
+              [(ngModel)]="prestadores.cpf">
+          </div>
+
+          <div class="col-xs-6">
+            <label class="label-title-input">Nascimento</label>
+            <input class="form-control input-sm" type="date" placeholder="DD/MM/AAAA" [(ngModel)]="prestadores.birth">
+          </div>
+
+          <div class="col-xs-12">
+            <label class="label-title-input">Estado</label>
+            <select class="form-control select2" style="width: 100%;" (change)="onChangeState($event.target.value)"
+              [(ngModel)]="prestadores.state">
+              <option *ngFor="let state of states" [value]="state.id">{{state.nome}}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-xs-12">
+            <label class="label-title-input">Cidade</label>
+            <select class="form-control select2" style="width: 100%;" [(ngModel)]="prestadores.city">
+              <option *ngFor="let city of cities" [value]="city.nome">{{city.nome}}
+              </option>
+            </select>
+          </div>
+
+          <div class="col-xs-12">
+            <label class="label-title-input">Contato</label>
+            <input class="form-control input-sm" type="text" placeholder="Ex.: (11) 9999-9999" name="contact"
+              [(ngModel)]="prestadores.contact">
+            <br />
+          </div>
+
+          <div class="col-xs-7">
+
+          </div>
+
+          <div class="col-xs-5">
+            <button type="submit" (click)="addOrUpdateProfileProvider()"
+              class="btn btn-block btn-success button-register-prestadores">Cadastrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal modal-default fade" id="modal-altera-servico">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" style="color: green;"><b>Novo serviço</b></h4>
+      </div>
+      <div class="modal-body">
+        <div class="box-body">
+          <div class="col-xs-12">
+            <label class="label-title-input">Serviço</label>
+            <input class="form-control input-sm" type="text" [(ngModel)]="services.name">
+          </div>
+          <div class="col-xs-12">
+            <label class="label-title-input">Unidade de Conservação</label>
+            <select class="form-control select" style="width: 100%;" [(ngModel)]="services.uc">
+              <option *ngFor="let item of unidadesConservacao" [value]="item.name">{{item.name}}
+              </option>
+            </select>
+          </div>
+          <div class="col-xs-12">
+            <label class="label-title-input">description</label>
+            <textarea class="form-control input-sm" type="text" placeholder=""
+              [(ngModel)]="services.description"></textarea>
+            <br />
+          </div>
+          <div class="col-xs-7"></div>
+          <div class="col-xs-5">
+            <button type="submit" (click)="addOrUpdateServices()"
+              class="btn btn-block btn-success button-register-prestadores">Cadastrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div *ngIf="reschecksProviders == 'no'">
+  <div class="modal modal-default fade" id="modal-altera-servico">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" style="color: green;"><b>Novo serviço</b></h4>
+        </div>
+        <div class="modal-body">
+          <div class="box-body">
+            <div class="alert alert-danger alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              <h4><i class="icon fa fa-ban"></i> ATENÇÃO!</h4>
+              Você não tem permissão para ser prestador de serviços. Para mais informaçoes: "email@mail.com.br".
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

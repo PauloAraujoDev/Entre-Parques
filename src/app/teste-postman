@@ -1,0 +1,31 @@
+https://weather.api.here.com/weather/1.0/report.json?product=forecast_7days_simple&app_id=tx5eE3vtBLSxf6AhWvNC&app_code=ptO_NF3BUeYCuf7OVwsm-g&latitude=-18.8286&longitude=-43.8222&language=en-US
+
+//Disponibilidade da API.
+pm.test("Status: 200", function () {
+    pm.response.to.have.status(200);
+});
+
+//Resposta abaixo de 1/2 segundo.
+pm.test("Resposta abaixo de 500ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(500);
+});
+
+
+//Verificar idioma em Português.
+pm.variables.set("idioma", "sexta-feira");
+pm.test("Em Português", function () {
+    pm.expect(pm.response.text()).to.include(pm.variables.get("idioma"));
+});
+
+//Verificar idioma em Espanhol.
+pm.variables.set("idioma", "Miércoles");
+pm.test("Em Espanhol", function () {
+    pm.expect(pm.response.text()).to.include(pm.variables.get("idioma"));
+});
+
+//Verificar idioma em Inglês.
+pm.variables.set("idioma", "Sunday");
+pm.test("Em Inglês", function () {
+    pm.expect(pm.response.text()).to.include(pm.variables.get("idioma"));
+});
+

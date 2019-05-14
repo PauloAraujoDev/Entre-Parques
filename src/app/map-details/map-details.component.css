@@ -1,0 +1,36 @@
+.star {
+  position: relative;
+  display: inline-block;
+  font-size: 3rem;
+  color: #d3d3d3;
+}
+.full {
+  color: red;
+}
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  color: red;
+}
+
+.empty {
+  color: #464646;
+}
+
+.round-button {
+  width: 45px;
+  height: 10px;
+  padding-bottom: 40px;
+  border-radius: 22px;
+  border: 2px solid #f5f5f5;
+  overflow: hidden;
+  background: #464646;
+  box-shadow: 0 0 3px gray;
+  margin-top: 5px;
+}
+
+#modal-ranking span.star {
+  font-size: 5rem !important;
+}
+

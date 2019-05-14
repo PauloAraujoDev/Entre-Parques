@@ -1,0 +1,52 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+
+    <ol class="breadcrumb">
+      <li><a routerLink="/menu"><i class="fa fa-home"></i> Menu</a></li>
+      <li class="active">Unidades de Conservação</li>
+    </ol>
+  </section>
+  <section class="content">
+    <app-search (filters)="onSearchChange($event)" [attractives$]="attractives$"></app-search>
+
+    <div [hidden]="hiddenEmptyResults" class="text-center" style="margin-top: 80px;">
+      <i style="color: slategrey; margin:0 auto;" class="fas fa-info-circle fa-10x"></i>
+      <p style="margin-top: 50px">Nenhum resultado encontrado</p>
+    </div>
+    
+    <section class="details-card">
+      <div class="container">
+        <div class="row">
+          <div *ngFor="let item of items">
+            <div class="col-md-4 col-lg-4 col-xs-12">
+              <div class="card-content">
+                <div class="card-img">
+                  <img src='{{item.pathImage[0]}}' alt="">
+                  <span style="width: 120px">
+                    <h4 style="text-align: center">{{item.name}}</h4>
+                  </span>
+                </div>
+                <div class="card-desc">
+                  <div class="row">
+                    <div class="col-xs-8">
+                      <h3>{{item.state}} </h3>
+                    </div>
+                    <div class="col-xs-4 text-right">
+                      <h4>{{item.distanceText}}</h4>
+                    </div>
+                  </div>
+                  <p>{{item.description}} <br/>aqui</p>                         
+                  <button (click)="knowMore(item.name)"   class="btn-card">Saiba Mais</button>
+                </div>
+              </div>
+              <br />
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</div>

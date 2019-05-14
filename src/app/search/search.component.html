@@ -1,0 +1,56 @@
+<div class="container">
+  <!-- <div class="row" style="margin-bottom: 5px">
+    <div class="col-md-1 text-right">
+      <button style="border-radius: 15%" data-toggle="modal" data-target="#modal-success" type="button" class="btn btn-success btn-flat">
+        <i class="fa fa-filter"></i>
+      </button>
+    </div>
+  </div> -->
+  <!-- <div class="box">
+    <div class="box-body table-responsive no-padding">
+      <table class="table table-hover">
+        <tr *ngFor="let item of states" [@EnterLeave]="'flyIn'">
+          <td (click)="selectedRow(item)">{{item}}</td>
+        </tr>
+      </table>
+    </div>
+  </div> -->
+</div>
+
+<div class="modal modal-success fade" id="modal-success">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Filtros</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">Atrações</label>
+          <div class="containerChek">
+            <ul class="ks-cboxtags">
+              <li *ngFor="let attractive of attractives">
+                <input (click)="addOrRemoveAttractive(attractive)" type="checkbox" id="{{attractive}}" value="{{attractive}}">
+                <label for="{{attractive}}">{{attractive}}</label>
+              </li>
+            </ul>
+          </div>
+
+
+        </div>
+
+        <label>Parques</label>
+        <input type="email" class="form-control" placeholder="Filtrar parques.." [(ngModel)]="park">
+
+        <label>Estados</label>
+        <input type="email" class="form-control" placeholder="Filtrar por estados.." [(ngModel)]="state">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" (click)="filterParameter()" class="btn btn-outline" data-dismiss="modal">Aplicar</button>
+      </div>
+    </div>
+  </div>
+</div>
